@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tutorial/ApiService.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -11,11 +14,23 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  final apiService = ApiService();
 
   void _incrementCounter() {
     setState(() {
       _counter++;
     });
+  }
+
+  Future<void> connectApi() async {
+    //Future<List<Map<String, dynamic>>> list = apiService.fetchUsers();
+    final String apiUrl = 'https://jsonplaceholder.typicode.com/users';
+    final response = await http.get(Uri.parse(apiUrl));
+    List<dynamic> data = json.decode(response.body);
+
+    for (final user in data) {
+      print(user);
+    }
   }
 
   @override
@@ -36,7 +51,13 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            ElevatedButton(onPressed: null, child: const Text('Elevated')),
+            OutlinedButton(onPressed: null, child: const Text('Outlined')),
+            ElevatedButton.icon(
+                onPressed: () {
+                  connectApi();
+                },
+                icon: const Icon(Icons.api),
+                label: const Text('Photo')),
           ],
         ),
       ),
