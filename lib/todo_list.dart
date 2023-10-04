@@ -14,32 +14,33 @@ class _TodoListState extends State<TodoList> {
 
   @override
   Widget build(BuildContext context) {
+    var bodyWidget = Column(
+      children: <Widget>[
+        TextField(
+          controller: taskController,
+          decoration: const InputDecoration(
+            labelText: 'Nueva tarea',
+          ),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            setState(() {
+              tasks.add(taskController.text);
+              taskController.clear();
+            });
+          },
+          child: const Text('Agregar tarea'),
+        ),
+        Expanded(
+          child: TaskList(tasks),
+        ),
+      ],
+    );
     return Scaffold(
       appBar: AppBar(
         title: const Text('Lista de Tareas'),
       ),
-      body: Column(
-        children: <Widget>[
-          TextField(
-            controller: taskController,
-            decoration: const InputDecoration(
-              labelText: 'Nueva tarea',
-            ),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              setState(() {
-                tasks.add(taskController.text);
-                taskController.clear();
-              });
-            },
-            child: const Text('Agregar tarea'),
-          ),
-          Expanded(
-            child: TaskList(tasks),
-          ),
-        ],
-      ),
+      body: bodyWidget,
     );
   }
 }
