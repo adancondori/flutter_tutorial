@@ -16,6 +16,13 @@ class TaskList extends StatelessWidget {
   }
 
   Widget getDetail(int index, String name) {
+    final image = const Center(
+      child: Image(
+        width: 100,
+        image: NetworkImage('https://adancondori.github.io/images/qradm.jpg'),
+      ),
+    );
+
     final title = Container(
       margin: const EdgeInsets.only(
         top: 5,
@@ -31,23 +38,26 @@ class TaskList extends StatelessWidget {
         ),
       ),
     );
-    final detail = Container(
-      margin: const EdgeInsets.only(top: 0, left: 10, bottom: 25),
-      child: Text(
-        "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500",
-        style: const TextStyle(
-          fontFamily: "Roboto",
-          fontSize: 16,
-          fontWeight: FontWeight.w300,
-          color: Color.fromARGB(255, 0, 0, 0),
-        ),
-      ),
+    final detail = Row(
+      children: <Widget>[
+        Expanded(
+            child: Container(
+          margin: const EdgeInsets.only(top: 0, left: 10, bottom: 25),
+          child: Text(
+            "Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500",
+            style: const TextStyle(
+              fontFamily: "Roboto",
+              fontSize: 16,
+              fontWeight: FontWeight.w300,
+              color: Color.fromARGB(255, 0, 0, 0),
+            ),
+          ),
+        )),
+        image,
+      ],
     );
-    final image = Image(
-      width: 100,
-      image: NetworkImage('https://adancondori.github.io/images/qradm.jpg'),
-    );
-    final img2 = Image.asset('assets/images/lake.jpeg');
+
+    final img2 = Center(child: Image.asset('assets/images/lake.jpeg'));
     final info = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
@@ -56,7 +66,18 @@ class TaskList extends StatelessWidget {
         detail,
       ],
     );
-    return info;
+
+    final container = Container(
+      margin: const EdgeInsets.all(10.0),
+      height: 350.0,
+      child: info,
+    );
+    final card = Card(
+      child: container,
+      shadowColor: Colors.black,
+      color: Colors.greenAccent[100],
+    );
+    return card;
   }
 
   /// ------

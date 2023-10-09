@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tutorial/screen.dart';
 import 'task_list.dart';
 
 class TodoList extends StatefulWidget {
@@ -14,6 +15,7 @@ class _TodoListState extends State<TodoList> {
 
   @override
   Widget build(BuildContext context) {
+    List<int> list = [1, 2, 3];
     var bodyWidget = Column(
       children: <Widget>[
         TextField(
@@ -21,6 +23,10 @@ class _TodoListState extends State<TodoList> {
           decoration: const InputDecoration(
             labelText: 'Nueva tarea',
           ),
+        ),
+        SizedBox(
+          height: 20.0,
+          child: Container(),
         ),
         ElevatedButton(
           onPressed: () {
@@ -31,6 +37,15 @@ class _TodoListState extends State<TodoList> {
           },
           child: const Text('Agregar tarea'),
         ),
+        ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Pantalla()),
+            );
+          },
+          child: const Text('Go Pantalla'),
+        ),
         Expanded(
           child: TaskList(tasks),
         ),
@@ -39,6 +54,17 @@ class _TodoListState extends State<TodoList> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Lista de Tareas'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.settings,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              // do something
+            },
+          )
+        ],
       ),
       body: bodyWidget,
     );
