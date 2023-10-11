@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tutorial/Api1.dart';
 import 'package:flutter_tutorial/DetailPokemon.dart';
 import 'package:flutter_tutorial/PokemonList.dart';
+import 'package:flutter_tutorial/SimpleApi2.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
@@ -20,7 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void goSimpleAPI() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => SimpleAPI()),
+      MaterialPageRoute(builder: (context) => SimpleAPI2()),
     );
   }
 

@@ -47,12 +47,16 @@ class _PokemonListState extends State<PokemonList> {
             : ListView.builder(
                 itemCount: pokemonNames.length,
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(pokemonNames[index].capitalizeFirstLetter()),
-                  );
+                  return getBody(index);
                 },
               ),
       ),
+    );
+  }
+
+  ListTile getBody(int index) {
+    return ListTile(
+      title: Text(pokemonNames[index].capitalizeFirstLetter()),
     );
   }
 }
