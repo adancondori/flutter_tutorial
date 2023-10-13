@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tutorial/DetailPost.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
@@ -25,6 +26,13 @@ class _SimpleAPIPageState extends State<SimpleAPI> {
     }
   }
 
+  void goScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => DetailPost()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,6 +55,7 @@ class _SimpleAPIPageState extends State<SimpleAPI> {
                   return ListTile(
                     title: Text(data[index]['title']),
                     subtitle: Text(data[index]['body']),
+                    onTap: () => goScreen(),
                   );
                 },
               ),

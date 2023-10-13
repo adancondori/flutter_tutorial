@@ -21,7 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void goSimpleAPI() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => SimpleAPI2()),
+      MaterialPageRoute(builder: (context) => SimpleAPI()),
     );
   }
 
