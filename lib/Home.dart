@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tutorial/GoogleMapScreen.dart';
+import 'package:flutter_tutorial/MapPolygon.dart';
 import 'package:flutter_tutorial/MapScreen.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
@@ -20,7 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Navigator.push(
       context,
       //MaterialPageRoute(builder: (context) => MapScreen()),
-      MaterialPageRoute(builder: (context) => GoogleMapScreen()),
+      MaterialPageRoute(builder: (context) => MapPolygon()),
     );
   }
 
