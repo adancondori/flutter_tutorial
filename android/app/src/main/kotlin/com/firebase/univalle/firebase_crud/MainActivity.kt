@@ -1,4 +1,4 @@
-package com.example.flutter_tutorial
+package com.firebase.univalle.firebase_crud
 
 import io.flutter.embedding.android.FlutterActivity
 

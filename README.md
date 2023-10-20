@@ -1,4 +1,4 @@
-# flutter_tutorial
+# firebase_crud
 
 A new Flutter project.
 

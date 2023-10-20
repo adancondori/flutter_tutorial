@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "322677979446",
+    "project_id": "docencia-2023",
+    "storage_bucket": "docencia-2023.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:322677979446:android:f40b6bc0136ba0b83c9b97",
+        "android_client_info": {
+          "package_name": "com.firebase.univalle.firebase_crud"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVArpNVBZThrCFD24rROlWVY3BzbcI-3U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
