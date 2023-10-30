@@ -3,6 +3,7 @@ import 'package:flutter_tutorial/home/bloc/counter_bloc.dart';
 import 'package:flutter_tutorial/home/bloc/counter_event.dart';
 import 'package:flutter_tutorial/home/bloc/counter_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_tutorial/posts/ui/home_posts.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -14,6 +15,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  void goNextScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => HomePosts()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,6 +90,23 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
             ],
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          MaterialButton(
+            color: const Color.fromARGB(255, 11, 32, 223),
+            elevation: 0.0,
+            height: 50,
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(8))),
+            child: const Text(
+              "Next Screen",
+              style: TextStyle(fontSize: 22, color: Colors.white),
+            ),
+            onPressed: () {
+              goNextScreen();
+            },
           )
         ],
       ),
