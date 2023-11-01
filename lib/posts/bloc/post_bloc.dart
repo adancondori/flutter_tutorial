@@ -13,13 +13,14 @@ class PostBloc extends Bloc<PostEvents, PostStates> {
   //  };
   //}
   PostBloc() : super(InitialState()) {
-    on<ApiPostEvent>(
-      (event, emit) async {
-        emit(UpdateState(data));
-      },
-    );
+    on<ApiPostEvent>(onApiPost);
+    //on<ApiPostEvent>(
+    //  (event, emit) async {
+    //    emit(UpdateState(data));
+    //  },
+    //);
   }
-  void onApiPostEvent(ApiPostEvent event, Emitter<PostStates> emit) async {
+  void onApiPost(ApiPostEvent event, Emitter<PostStates> emit) async {
     final response =
         await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
 
