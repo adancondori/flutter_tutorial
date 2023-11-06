@@ -7,19 +7,10 @@ import 'dart:convert' as convert;
 class PostBloc extends Bloc<PostEvents, PostStates> {
   List<dynamic> data = [];
 
-  //PostBloc() : super(InitialState()) {
-  //  on<ApiPostEvent>(onApiPostEvent){
-//
-  //  };
-  //}
   PostBloc() : super(InitialState()) {
     on<ApiPostEvent>(onApiPost);
-    //on<ApiPostEvent>(
-    //  (event, emit) async {
-    //    emit(UpdateState(data));
-    //  },
-    //);
   }
+
   void onApiPost(ApiPostEvent event, Emitter<PostStates> emit) async {
     final response =
         await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));

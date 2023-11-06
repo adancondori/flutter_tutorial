@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tutorial/home/ui/Home.dart';
 import 'package:flutter_tutorial/home/bloc/counter_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_tutorial/pokemon/bloc/pokemon_bloc.dart';
 import 'package:flutter_tutorial/posts/bloc/post_bloc.dart';
 
 void main() {
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<PostBloc>(
           create: (context) => PostBloc(),
-        )
+        ),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
